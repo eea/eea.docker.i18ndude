@@ -1,7 +1,7 @@
 FROM python:2-alpine
 MAINTAINER "EEA: IDM2 A-Team" <eea-edw-a-team-alerts@googlegroups.com>
 
-ENV VERSION=4.0.1
+ENV VERSION=4.3
 
 RUN apk add --no-cache --virtual .build-deps \
     gcc \
@@ -12,7 +12,11 @@ RUN apk add --no-cache --virtual .build-deps \
  && apk del .build-deps \
  && apk add --no-cache --virtual .run-deps \
     libxml2 \
-    libxslt
+    libxslt \
+    git \
+ && mkdir -p /code
 
-ENTRYPOINT ["i18ndude"]
-CMD ["find-untranslated", "/code"]
+COPY docker-entrypoint.sh /
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["i18ndude"]

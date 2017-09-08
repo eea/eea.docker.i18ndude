@@ -6,40 +6,40 @@
 ## Supported tags and respective `Dockerfile` links
 
 - [`latest` (*Dockerfile*)](https://github.com/eea/eea.docker.i18ndude/blob/master/Dockerfile)
-- [`4.0.1` (*Dockerfile*)](https://github.com/eea/eea.docker.i18ndude/blob/4.0.1/Dockerfile)
+- [`4.3` (*Dockerfile*)](https://github.com/eea/eea.docker.i18ndude/blob/4.3/Dockerfile)
 
 ## Usage
 
 Default action `find-untranslated` messages: 
 
-```console
-$ docker run --rm -v /path/to/python/code:/code eeacms/i18ndude
-```
+    $ docker run --rm -v /path/to/python/code:/code eeacms/i18ndude
+
+or
+
+    $ docker run --rm eeacms/i18ndude https://github.com/eea/eea.alchemy.git
 
 ## Advanced usage
 
 ### rebuild-pot
 
-```console
-$ docker run --rm \
-             -v $(pwd)/src/eea.facetednavigation:/code \
-             -w /code/eea/facetednavigation/locales \
-         eeacms/i18ndude \
-         rebuild-pot --exclude documentation --pot eea.pot --create eea ../../
-```
+
+    $ docker run --rm \
+                 -v $(pwd)/src/eea.facetednavigation:/code \
+                 -w /code/eea/facetednavigation/locales \
+             eeacms/i18ndude \
+             i18ndude rebuild-pot --exclude documentation --pot eea.pot --create eea ../../
+
 
 ### sync
 
-```console
-$ docker run --rm \
-             -v $(pwd)/src/eea.facetednavigation:/code \
-             -w /code/eea/facetednavigation/locales \
-         eeacms/i18ndude sync --pot eea.pot */LC_MESSAGES/eea.po
+
+    $ docker run --rm \
+                 -v $(pwd)/src/eea.facetednavigation:/code \
+                 -w /code/eea/facetednavigation/locales \
+             eeacms/i18ndude i18ndude sync --pot eea.pot */LC_MESSAGES/eea.po
          
-```
 
 See i18ndude `--help` for more options:
 
-```console
-$ docker run --rm eeacms/i18ndude --help
-```
+
+    $ docker run --rm eeacms/i18ndude --help
