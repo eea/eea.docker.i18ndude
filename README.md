@@ -29,6 +29,13 @@ or
              eeacms/i18ndude \
              i18ndude rebuild-pot --exclude documentation --pot eea.pot --create eea ../../
 
+or (if `update.sh` script is present within repo)
+
+
+    $ docker run --rm \
+                 -v $(pwd)/src/eea.facetednavigation:/code \
+                 -w /code/eea/facetednavigation/locales \
+             eeacms/i18ndude ./update.sh
 
 ### sync
 

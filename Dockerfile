@@ -14,6 +14,7 @@ RUN apk add --no-cache --virtual .build-deps \
     libxml2 \
     libxslt \
     git \
+    bash \
  && mkdir -p /code
 
 COPY docker-entrypoint.sh /
