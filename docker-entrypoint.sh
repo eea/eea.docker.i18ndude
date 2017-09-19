@@ -18,12 +18,23 @@ if [ ! -z "$GIT_SRC" ]; then
   git clone $GIT_SRC
 fi
 
+if [ -z "$FILES" ]; then
+  FILES="/code"
+  if [ ! -z "$EXCLUDE" ]; then
+    FIND="find /code -type f -name *pt"
+    for path in $EXCLUDE; do
+      FIND="$FIND ! -path *$path*"
+    done
+    FILES="$($FIND)"
+  fi
+fi
+
 if [[ ${CMD:0:1} = "-" ]]; then
-  exec i18ndude "$@"
+  exec i18ndude find-untranslated "$@" $FILES
 fi
 
 if [ "$CMD" = "i18ndude" ]; then
-  i18ndude find-untranslated /code
+  i18ndude find-untranslated $PARAMS $FILES
 else
   exec "$@"
 fi
