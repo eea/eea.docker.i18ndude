@@ -6,11 +6,11 @@
 ## Supported tags and respective `Dockerfile` links
 
 - [`latest` (*Dockerfile*)](https://github.com/eea/eea.docker.i18ndude/blob/master/Dockerfile)
-- [`4.3` (*Dockerfile*)](https://github.com/eea/eea.docker.i18ndude/blob/4.3/Dockerfile)
+- [`4.3.1` (*Dockerfile*)](https://github.com/eea/eea.docker.i18ndude/blob/4.3.1/Dockerfile)
 
 ## Usage
 
-Default action `find-untranslated` messages: 
+Default action `find-untranslated` messages:
 
     $ docker run --rm -v /path/to/python/code:/code eeacms/i18ndude
 
@@ -44,7 +44,7 @@ or (if `update.sh` script is present within repo)
                  -v $(pwd)/src/eea.facetednavigation:/code \
                  -w /code/eea/facetednavigation/locales \
              eeacms/i18ndude i18ndude sync --pot eea.pot */LC_MESSAGES/eea.po
-         
+
 
 See i18ndude `--help` for more options:
 
