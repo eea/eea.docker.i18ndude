@@ -6,6 +6,7 @@
 ## Supported tags and respective `Dockerfile` links
 
 - [`latest` (*Dockerfile*)](https://github.com/eea/eea.docker.i18ndude/blob/master/Dockerfile)
+- [`4.3.2` (*Dockerfile*)](https://github.com/eea/eea.docker.i18ndude/blob/4.3.2/Dockerfile)
 - [`4.3.1` (*Dockerfile*)](https://github.com/eea/eea.docker.i18ndude/blob/4.3.1/Dockerfile)
 
 ## Usage
